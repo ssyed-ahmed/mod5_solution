@@ -1,43 +1,61 @@
-<h2 class="text-center">Please Sign up for our Newsletter.</h2>
+<!-- <h2 class="text-center">Please Sign up for our Newsletter.</h2> -->
 <br>
 <div class="container" ng-controller="SignUpController as ctrl">
-  <form class="form-horizontal" name="SignUpForm">
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="firstName">First Name:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="ctrl.userInfo.firstName">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="lastName">Last Name:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="ctrl.userInfo.lastName">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Email:</label>
-      <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Enter Email" ng-model="ctrl.userInfo.email">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="phone">Phone:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number" ng-model="ctrl.userInfo.phone">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="menuNumber">Menu Number:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="menuNumber" placeholder="Enter Menu Number" ng-model="ctrl.userInfo.menuNumber">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default" ng-click="ctrl.submitUserInfo()">Submit</button>
-      </div>
-    </div>
-  </form>
 
+  <fieldset>
+    <legend>Please Sign up for our Newsletter.</legend>
+    <form class="form-horizontal" name="SignUpForm" novalidate>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="firstName">First Name:</label>
+        <div class="col-sm-10">
+          <input type="text" required class="form-control" id="firstName" placeholder="Enter First Name" ng-model="ctrl.userInfo.firstName">
+          <span ng-if="SignUpForm.firstName.$error.required && SignUpForm.firstName.$touched">
+            First Name is required
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="lastName">Last Name:</label>
+        <div class="col-sm-10">
+          <input type="text" required class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="ctrl.userInfo.lastName">
+          <span ng-if="SignUpForm.lastName.$error.required && SignUpForm.lastName.$touched">
+            Last Name is required
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email:</label>
+        <div class="col-sm-10">
+          <input type="email" required class="form-control" id="email" placeholder="Enter Email" ng-model="ctrl.userInfo.email">
+          <span ng-if="SignUpForm.email.$error.required && SignUpForm.email.$touched">
+            Email is required
+          </span>
+          <span ng-if="SignUpForm.email.$invalid && SignUpForm.email.$touched">
+            Must be a valid Email address: eg. user@domain format
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="phone">Phone:</label>
+        <div class="col-sm-10">
+          <input type="text" required class="form-control" id="phone" placeholder="Enter Phone Number" ng-model="ctrl.userInfo.phone">
+          <span ng-if="SignUpForm.phone.$error.required && SignUpForm.phone.$touched">
+            Phone Number is required
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="menuNumber">Menu Number:</label>
+        <div class="col-sm-10">
+          <input type="text" required class="form-control" id="menuNumber" placeholder="Enter Menu Number" ng-model="ctrl.userInfo.menuNumber">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" required class="btn btn-default" ng-click="ctrl.submitUserInfo()">Submit</button>
+        </div>
+      </div>
+    </form>
+</fieldset>
 
 </div>
