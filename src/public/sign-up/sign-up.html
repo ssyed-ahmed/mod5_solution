@@ -1,40 +1,40 @@
 <h2 class="text-center">Please Sign up for our Newsletter.</h2>
 <br>
-<div class="container">
-  <form class="form-horizontal">
+<div class="container" ng-controller="SignUpController as ctrl">
+  <form class="form-horizontal" name="SignUpForm">
     <div class="form-group">
       <label class="control-label col-sm-2" for="firstName">First Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+        <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="ctrl.userInfo.firstName">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="lastName">Last Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="ctrl.userInfo.lastName">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Enter Email">
+        <input type="email" class="form-control" id="email" placeholder="Enter Email" ng-model="ctrl.userInfo.email">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="phone">Phone:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number">
+        <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number" ng-model="ctrl.userInfo.phone">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="menuNumber">Menu Number:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="menuNumber" placeholder="Enter Menu Number">
+        <input type="text" class="form-control" id="menuNumber" placeholder="Enter Menu Number" ng-model="ctrl.userInfo.menuNumber">
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Sign Up</button>
+        <button type="submit" class="btn btn-default" ng-click="ctrl.submitUserInfo()">Submit</button>
       </div>
     </div>
   </form>
