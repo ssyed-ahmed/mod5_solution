@@ -6,22 +6,16 @@
 
   SignUpController.$inject = ['SignUpService'];
   function SignUpController(SignUpService) {
-    var ctrl = this;
+    var $ctrl = this;
+    $ctrl.userInfo = {};
 
-    ctrl.userInfo = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      menuNumber: ''
-    };
+    $ctrl.submit = function() {
+      SignUpService.getMenuItems($ctrl.userInfo.menuNumber).then(function(response) {
+        $ctrl.submitted = true;
+      })
+      .catch(function() {
 
-    ctrl.submitUserInfo = function(shortName) {
-      SignUpService.getMenuItem(shortName)
-    };
-
-    ctrl.checkCondition = function(field) {
-      debugger;
-    };
+      });
+    }
   }
 })();

@@ -1,4 +1,4 @@
-<div class="container" ng-controller="SignUpController as ctrl">
+<div class="container">
 
   <fieldset>
     <legend>
@@ -8,7 +8,7 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="firstName">First Name:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="ctrl.userInfo.firstName" required>
+          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="signUpCtrl.userInfo.firstName" required>
           <span ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched">
             First Name is required
           </span>
@@ -17,7 +17,7 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="lastName">Last Name:</label>
         <div class="col-sm-10">
-          <input type="text" required class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="ctrl.userInfo.lastName">
+          <input type="text" required class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="signUpCtrl.userInfo.lastName">
           <span ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched">
             Last Name is required
           </span>
@@ -26,7 +26,7 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="email">Email:</label>
         <div class="col-sm-10">
-          <input type="email" required class="form-control" id="email" placeholder="Enter Email" ng-model="ctrl.userInfo.email">
+          <input type="email" required class="form-control" id="email" placeholder="Enter Email" ng-model="signUpCtrl.userInfo.email">
           <span ng-if="signUpForm.email.$error.required && signUpForm.email.$touched">
             Email is required
           </span>
@@ -38,7 +38,7 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="phone">Phone:</label>
         <div class="col-sm-10">
-          <input type="text" required class="form-control" id="phone" placeholder="Enter Phone Number (###-###-#### format)" ng-model="ctrl.userInfo.phone"  pattern="(\d{3})-(\d{3})-(\d{4})">
+          <input type="text" required class="form-control" id="phone" placeholder="Enter Phone Number (###-###-#### format)" ng-model="signUpCtrl.userInfo.phone"  pattern="(\d{3})-(\d{3})-(\d{4})">
           <span ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">
             Phone Number is required
           </span>
@@ -48,17 +48,21 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="menuNumber">Menu Number:</label>
+        <label class="control-label col-sm-2" for="menuNumber">Menu Code:</label>
         <div class="col-sm-10">
-          <input type="text" required class="form-control" id="menuNumber" placeholder="Enter Menu Number" ng-model="ctrl.userInfo.menuNumber">
+          <input type="text" required class="form-control" id="menuNumber" placeholder="Enter Menu Number" ng-model="signUpCtrl.userInfo.menuNumber">
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" required ng-disabled="signUpForm.$invalid" class="btn btn-success" ng-click="ctrl.submitUserInfo(ctrl.userInfo.menuNumber)">Submit</button>
+          <button type="submit" required ng-disabled="signUpForm.$invalid" class="btn btn-success" ng-click="signUpCtrl.submit()">Submit</button>
         </div>
       </div>
     </form>
 </fieldset>
+
+<div ng-if="signUpCtrl.submitted">
+  Your information has been saved!
+</div>
 
 </div>

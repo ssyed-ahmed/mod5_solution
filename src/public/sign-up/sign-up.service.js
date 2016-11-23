@@ -8,15 +8,15 @@
   function SignUpService($http, ApiPath) {
     var service = this;
 
-    service.getMenuItem = function(shortName) {
+    service.getMenuItems = function(shortName) {
       var config = {};
       if (shortName) {
-        config.params = {'short_name': shortName};
+        config.params = {'category': shortName};
       }
 
       return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
         return response.data;
-      })
+      });
     }
   }
 })();

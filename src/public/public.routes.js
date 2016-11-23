@@ -44,7 +44,24 @@ function routeConfig ($stateProvider) {
     .state('public.signup', {
       url: '/signup',
       templateUrl: 'src/public/sign-up/sign-up.html',
-      controller: 'SignUpController'
+      controller: 'SignUpController',
+      controllerAs: 'signUpCtrl'
     });
+    // .state('public.signup.complete', {
+    //   url: '/signup/{category}',
+    //   templateUrl: 'src/public/sign-up/sign-up-complete.html',
+    //   controller: 'SignUpController',
+    //   controllerAs: 'signUpCtrl',
+    //   resolve: {
+    //     menuItems: ['$stateParams', 'SignUpService', function($stateParams, SignUpService) {
+    //       // var res = SignUpService.getMenuItems($stateParams.category);
+    //       // var t = 10;
+    //       // var h;
+    //       SignUpService.getMenuItems($stateParams.category).then(function(response) {
+    //           return response.menu_items;
+    //       });
+    //     }]
+    //   }
+    // });
 }
 })();
