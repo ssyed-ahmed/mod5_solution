@@ -4,10 +4,11 @@
   angular.module('public')
     .controller('SignUpController', SignUpController);
 
-  function SignUpController() {
+  SignUpController.$inject = ['SignUpService'];
+  function SignUpController(SignUpService) {
     var ctrl = this;
 
-    var userInfo = {
+    ctrl.userInfo = {
       firstName: '',
       lastName: '',
       email: '',
@@ -15,8 +16,12 @@
       menuNumber: ''
     };
 
-    ctrl.submitUserInfo = function() {
-      
-    }
+    ctrl.submitUserInfo = function(shortName) {
+      SignUpService.getMenuItem(shortName)
+    };
+
+    ctrl.checkCondition = function(field) {
+      debugger;
+    };
   }
 })();
