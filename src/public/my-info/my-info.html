@@ -1,20 +1,25 @@
-<div class="text-center">
-  <h3>My Info</h3>
+<div class="text-center" ng-if="!myInfoCtrl.isUserRegistered()">
+  Not signed up yet. <a ui-sref="public.signup">Sign up now!</a>
 </div>
-<div class="container">
-  <div class="">
-    First Name: {{ signUpCtrl.myInfo.firstName }}
+<div ng-show="myInfoCtrl.isUserRegistered()">
+  <div class="text-center">
+    <h3>My Info</h3>
   </div>
-  <div class="">
-    Last Name: {{ signUpCtrl.myInfo.lastName }}
-  </div>
-  <div class="">
-    Email: {{ signUpCtrl.myInfo.email }}
-  </div>
-  <div class="">
-    Phone Number: {{ signUpCtrl.myInfo.phone }}
-  </div>
-  <div class="">
-    My Favourite Menu: {{ signUpCtrl.myInfo.favouriteMenu }}
+  <div class="container">
+    <div class="myInfo">
+      First Name: {{ myInfoCtrl.myInfo.firstName }}
+    </div>
+    <div class="myInfo">
+      Last Name: {{ myInfoCtrl.myInfo.lastName }}
+    </div>
+    <div class="myInfo">
+      Email: {{ myInfoCtrl.myInfo.email }}
+    </div>
+    <div class="myInfo">
+      Phone Number: {{ myInfoCtrl.myInfo.phone }}
+    </div>
+    <div class="myInfo">
+      My Favourite Menu: {{ myInfoCtrl.myInfo.favouriteMenu }}
+    </div>
   </div>
 </div>
