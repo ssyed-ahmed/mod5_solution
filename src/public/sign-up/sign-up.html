@@ -8,51 +8,51 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="firstName">First Name:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="signUpCtrl.userInfo.firstName" required>
+          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" ng-model="signUpCtrl.userInfo.firstName" name="firstName" required>
         </div>
-        <span ng-if="signUpForm.firstName.$invalid && signUpForm.firstName.$touched">
+        <span ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched">
           First Name is required
         </span>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="lastName">Last Name:</label>
         <div class="col-sm-10">
-          <input type="text" required class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="signUpCtrl.userInfo.lastName">
+          <input type="text" name="lastName" required class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="signUpCtrl.userInfo.lastName">
         </div>
-        <span ng-if="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">
+        <span ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched">
           Last Name is required
         </span>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="email">Email:</label>
         <div class="col-sm-10">
-          <input type="email" required class="form-control" id="email" placeholder="Enter Email" ng-model="signUpCtrl.userInfo.email">
+          <input type="email" name="email" required class="form-control" id="email" placeholder="Enter Email" ng-model="signUpCtrl.userInfo.email">
         </div>
-        <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+        <span ng-if="signUpForm.email.$error.required && signUpForm.email.$touched">
           Email is required
         </span>
         <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
-          Must be a valid Email address: eg. user@domain format
+          <br>Must be a valid Email address: eg. user@domain format
         </span>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="phone">Phone:</label>
         <div class="col-sm-10">
-          <input type="text" required class="form-control" id="phone" placeholder="Enter Phone Number (###-###-#### format)" ng-model="signUpCtrl.userInfo.phone"  pattern="(\d{3})-(\d{3})-(\d{4})">
+          <input type="text" name="phone" required class="form-control" id="phone" placeholder="Enter Phone Number (###-###-#### format)" ng-model="signUpCtrl.userInfo.phone"  pattern="(\d{3})-(\d{3})-(\d{4})">
         </div>
-        <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+        <span ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">
           Phone Number is required
         </span>
         <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
-          Phone number must be in the format ###-###-####
+          <br>Phone number must be in the format ###-###-####
         </span>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="menuNumber">Menu Code:</label>
         <div class="col-sm-10">
-          <input type="text" required class="form-control" id="menuNumber" placeholder="Enter Menu Number" ng-model="signUpCtrl.userInfo.menuNumber" ng-blur="signUpCtrl.validateMenuNumber()">
+          <input type="text" name="menuNumber" class="form-control" id="menuNumber" placeholder="Enter Menu Number" ng-model="signUpCtrl.userInfo.menuNumber" ng-blur="signUpCtrl.validateMenuNumber()">
         </div>
-        <span ng-if="!signUpCtrl.workedFine">
+        <span ng-if="signUpForm.menuNumber.$touched && !signUpCtrl.workedFine">
           No such menu number exists!
         </span>
       </div>

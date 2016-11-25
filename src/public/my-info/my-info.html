@@ -6,20 +6,24 @@
     <h3>My Info</h3>
   </div>
   <div class="container">
-    <div class="myInfo">
-      First Name: {{ myInfoCtrl.myInfo.firstName }}
-    </div>
-    <div class="myInfo">
-      Last Name: {{ myInfoCtrl.myInfo.lastName }}
-    </div>
-    <div class="myInfo">
-      Email: {{ myInfoCtrl.myInfo.email }}
-    </div>
-    <div class="myInfo">
-      Phone Number: {{ myInfoCtrl.myInfo.phone }}
-    </div>
-    <div class="myInfo">
-      My Favourite Menu: {{ myInfoCtrl.myInfo.favouriteMenu }}
-    </div>
+      <div class="table-responsive">
+        <table class="table">
+          <tr>
+            <td>First Name</td><td>{{ myInfoCtrl.myInfo.firstName }}</td>
+          </tr>
+          <tr>
+            <td>Last Name</td><td>{{ myInfoCtrl.myInfo.lastName }}</td>
+          </tr>
+          <tr>
+            <td>Email</td><td>{{ myInfoCtrl.myInfo.email }}</td>
+          </tr>
+          <tr>
+            <td>Phone Number</td><td>{{ myInfoCtrl.myInfo.phone }}</td>
+          </tr>
+          <tr>
+            <td>Favourite Menu</td><td>{{ myInfoCtrl.myInfo.favouriteMenu }}</td>
+          </tr>
+        </table>
+      </div>
   </div>
 </div>
